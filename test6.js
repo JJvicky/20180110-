@@ -5,4 +5,4 @@ console.log('bFunction:', bFunction);
 console.log('aString:', aString);
 console.log('aObject:', aObject);
 console.log('aFunction:', aFunction);
-console.log('aClass:', aClass);
+console.log('aClass:', aClassvicky);
