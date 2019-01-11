@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>圖片標題的顯示</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <!-- style-->
+    <style>
+    .section{
+        margin:10px;
+        position: relative;
+        overflow: hidden;
+    }
+    img{
+        width: 300px;
+        height: 200px;
+        display: block;
+        }
+    p{
+        width: 300px;
+        height:50px;
+        background-color: black;
+        color:white;
+        position: absolute;
+        z-index:1;
+        line-height: 50px;
+        padding: 0 5px;
+        transition: 1s linear;
+    }
+    .section:nth-of-type(1) p{  /* 或是nth-child(2)*/
+        top:150px;
+        opacity:0;
+    }
+    .section:nth-of-type(2) p{  
+        left: -300px;
+        opacity:1;
+    }
+    .section:nth-of-type(3) p{  
+        bottom: -66px;
+        opacity:1;
+    }
+
+
+    </style>
+  </head>
+  <body>
+      <div class="container">
+
+          <div class="section">
+            <img src="./images/thumb_IMG_0246_1024.jpg" alt="" >
+            <p>星野度假村</p>  
+          </div>
+          <div class="section">
+                <img src="./images/thumb_IMG_0246_1024.jpg" alt="">
+                <p>星野度假村</p>  
+           </div>
+         <div class="section">
+                <img src="./images/thumb_IMG_0246_1024.jpg" alt="">
+            <p data-after="-16px">星野度假村</p>  
+            </div>  
+        </div>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+
+ <!--Jquery starts-->
+    <script>
+    let sec= $(".section");
+    sec.filter(":nth-child(1)").on("mouseover",function(){
+        $(this).find("p").css("opacity","1");
+    }).on("mouseout",function(){
+        $(this).find("p").css("opacity","0");
+    })
+
+     sec.filter(":nth-child(2)").on("mouseover",function(){
+        $(this).find("p").css("left","0");
+    }).on("mouseout",function(){
+        $(this).find("p").css("left","-300px");
+    })
+    
+    sec.filter(":nth-child(3)").on("mouseover",function(){
+        $(this).find("p").css("bottom","-16px");
+    }).on("mouseout",function(){
+        $(this).find("p").css("bottom","-66px");
+    })
+    
+    /* 這個寫法不好 因為動畫在移動的過程中 px會改變 */
+    // sec.filter(":nth-child(3)").on("mouseover mouseleave",function(){
+    //     let before= $(this).find("p").css("bottom");
+    //     let after=  $(this).find("p").attr("data-after");
+    //     console.log(after);
+    //     $(this).find("p").css("bottom",after);
+    //     $(this).find("p").attr("data-after",before);
+    // });
+        
+
+
+
+    
+
+
+
+    </script>
+
+  </body>
+</html>
